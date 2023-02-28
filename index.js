@@ -19,7 +19,7 @@ let managerDetails = [
   {
     type: 'input',
     name: 'name',
-    message: "Please provide manager name",
+    message: "Please provide Team Manager name",
     default(){
         return 'NoName';
     }
@@ -122,16 +122,20 @@ let internDetails = [
 teamGenerator()
 async function teamGenerator() {  
     let {name, id, email, officeNumber, github, school } = await inquirer
-    // type of employee selection 
-    // if manager go to managerGenerator?
-    // if engineer go to engineerGenerator?
-    // if intern go to internGenerator? 
-    // managerGenerator(){ is prompts for manager as below?}
+    // // type of employee selection 
+    // // if manager go to managerGenerator?
+    // // if engineer go to engineerGenerator?
+    // // if intern go to internGenerator? 
+    // // managerGenerator(){ is prompts for manager as below?}
   
     .prompt(managerDetails);
 
-    // then?
-    let typeOfMember = await inquirer    
+    // adding a selection of action
+    function addTeamMember() {
+      
+    }
+    let typeOfMember = await inquirer 
+       
     .prompt([
       {
       type: 'list',
@@ -143,13 +147,14 @@ async function teamGenerator() {
       }
     }]);
 
-    console.log(typeOfMember)
+   
     // await inquirer .prompt(engineerDetails);
+    // validte choose and make apropriate prompt
 
-    if (typeOfMember == 1) {
+    if (Object.values(typeOfMember) == 1) {
      await inquirer .prompt(engineerDetails);
       
-    }else if (typeOfMember == 2){
+    }else if (Object.values(typeOfMember) == 2){
       await inquirer .prompt(internDetails);
     }else{
       return;
@@ -178,5 +183,4 @@ async function teamGenerator() {
 
 
 
-//ask for other members of team
 
