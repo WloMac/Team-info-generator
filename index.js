@@ -1,6 +1,7 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const Employee = require("./lib/Employee");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs/promises");
@@ -84,6 +85,31 @@ let engineerDetails = [{
       return 'NoNum';
   }
 }]
+let employeeDetails = [{
+  type: 'input',
+  name: 'name',
+  message: "Please provide employee name",
+  default(){
+      return 'NoName';
+  }
+},
+{
+  type: 'input',
+  name: 'id',
+  message: "Please provide ID",
+  default(){
+      return 'NoID';
+  }
+},
+{
+  type: 'input',
+  name: 'email',
+  message: "Please provide email",
+  default(){
+      return 'NoEmail';
+  }
+},
+]
 // Intern's detail
 let internDetails = [
   {
@@ -119,6 +145,17 @@ let internDetails = [
     }
   }]
 
+  let decision = [
+    {
+    type: 'list',
+    name: 'typeOfMember',
+    message: 'What you like to do? ',
+    choices: ['1. Add an engineer', '2. Add an intern', '3. Finish building the team'],
+    filter(val) {
+      return val.charAt(0);
+    }
+  }]
+
 teamGenerator()
 async function teamGenerator() {  
     let {name, id, email, officeNumber, github, school } = await inquirer
@@ -131,35 +168,61 @@ async function teamGenerator() {
     .prompt(managerDetails);
 
     // adding a selection of action
-    function addTeamMember() {
-      
-    }
-    let typeOfMember = await inquirer 
+    
+    // let typeOfMember = await inquirer     
+    // .prompt(decision); 
+     
        
-    .prompt([
-      {
-      type: 'list',
-      name: 'typeOfMember',
-      message: 'What you like to do? ',
-      choices: ['1. Add an engineer', '2. Add an intern', '3. Finish building the team'],
-      filter(val) {
-        return val.charAt(0);
-      }
-    }]);
-
-   
+    
     // await inquirer .prompt(engineerDetails);
     // validte choose and make apropriate prompt
-
-    if (Object.values(typeOfMember) == 1) {
-     await inquirer .prompt(engineerDetails);
+    
       
-    }else if (Object.values(typeOfMember) == 2){
-      await inquirer .prompt(internDetails);
-    }else{
-      return;
-    }
-  
+      let typeOfMember = await inquirer     
+      .prompt(decision);
+      
+      while (Object.values(typeOfMember) != 3 ) {
+        console.log(Object.values(typeOfMember))
+        if (Object.values(typeOfMember) == 1) {
+          await inquirer .prompt(engineerDetails);
+          
+          //validate();
+                  
+          
+        }else if (Object.values(typeOfMember) == 2){
+          await inquirer .prompt(internDetails);
+          //validate();
+          
+          
+          
+        }else{
+        console.log("Thank you for using Team Generator");
+        }
+      }
+      
+
+      
+     
+     
+      // validation
+      // function validate(){
+      //   const anotherMember = {
+      //     type: 'confirm',
+      //     name: 'AddMember',
+      //     message: 'Do you like to add another member?',
+      //     default: true,  
+      //   }
+      
+      //   inquirer.prompt(anotherMember).then((answers) => {
+      //     if(answers.AddMember === true){
+           
+      //     }
+      //     else{
+      //       console.log("Your team has been build");
+      //       return;
+      //     }
+      //   })
+      // }
 
  
 
