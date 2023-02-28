@@ -1,6 +1,6 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
-// const Intern = require("./lib/Intern");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs/promises");
@@ -126,14 +126,34 @@ async function teamGenerator() {
     // if manager go to managerGenerator?
     // if engineer go to engineerGenerator?
     // if intern go to internGenerator? 
-
     // managerGenerator(){ is prompts for manager as below?}
   
     .prompt(managerDetails);
 
     // then?
-    await inquirer    
-    .prompt(engineerDetails);
+    let typeOfMember = await inquirer    
+    .prompt([
+      {
+      type: 'list',
+      name: 'typeOfMember',
+      message: 'What you like to do? ',
+      choices: ['1. Add an engineer', '2. Add an intern', '3. Finish building the team'],
+      filter(val) {
+        return val.charAt(0);
+      }
+    }]);
+
+    console.log(typeOfMember)
+    // await inquirer .prompt(engineerDetails);
+
+    if (typeOfMember == 1) {
+     await inquirer .prompt(engineerDetails);
+      
+    }else if (typeOfMember == 2){
+      await inquirer .prompt(internDetails);
+    }else{
+      return;
+    }
   
 
  
@@ -145,7 +165,7 @@ async function teamGenerator() {
   
   team.push(new Manager (name, id, email, officeNumber ));
   team.push(new Engineer (name, id, email, github ));
-  // team.push(new Intern (name, id, email, school ));
+  team.push(new Intern (name, id, email, school ));
 
   let htmlDoc = render(team)
 
