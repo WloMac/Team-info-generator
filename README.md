@@ -13,7 +13,7 @@ Team Info Generator is a tool designed to visualy introduce and manage employee 
 6. [Licence](#licence)
 7. [Questions](#questions)
 
-## Installation <a name="installation"></a>
+## <a name="installation"></a> Installation 
 
 
 ## Usage <a name="usage"></a>
