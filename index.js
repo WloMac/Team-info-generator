@@ -169,19 +169,17 @@ async function teamGenerator() {
 
     // adding a selection of action
     
-    // let typeOfMember = await inquirer     
-    // .prompt(decision); 
-     
+       
        
     
     // await inquirer .prompt(engineerDetails);
     // validte choose and make apropriate prompt
     
-      
+      do{
       let typeOfMember = await inquirer     
       .prompt(decision);
       
-      while (Object.values(typeOfMember) != 3 ) {
+        //(Object.values(typeOfMember) != 3 )
         console.log(Object.values(typeOfMember))
         if (Object.values(typeOfMember) == 1) {
           await inquirer .prompt(engineerDetails);
@@ -199,6 +197,7 @@ async function teamGenerator() {
         console.log("Thank you for using Team Generator");
         }
       }
+    while(Object.values(typeOfMember) == 3)
       
 
       
