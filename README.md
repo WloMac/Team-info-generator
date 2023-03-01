@@ -11,15 +11,18 @@ As a manager a user want to generate a webpage that displays my team's basic inf
 3. [Usage](#usage)
 4. [Licence](#licence)
 5. [Colaboration](#colaboration)
-6. [Questions](#questions)
+6. [Repository](#repository)
+7. [Questions](#questions)
 
 ## <a name="installation"></a> Installation 
+
 * This application requires NODE.js server environment. You can find more about NODE.js here: 
 [Link](https://nodejs.dev/en/learn/how-to-install-nodejs/) 
 * Once you set your enviroment accordingly please run the program by typing: `node index.js` in your console
 
 
 ## Usage <a name="usage"></a>
+
 * Program will identify user as a Manager and asks relevant questions. 
 
     ![Manager's question image](./images/image1.png)
@@ -42,7 +45,12 @@ As a manager a user want to generate a webpage that displays my team's basic inf
 MIT
 
 ## Colaboration <a name="colaboration"></a>
+
 This project is based on starting code provided by Trilogy Education Services. Part of code in `index.js` has been created under supervision.
+
+## Repository <a name="colaboration"></a>
+
+Repository link: [https://github.com/WloMac/Team-info-generator](https://github.com/WloMac/Team-info-generator)
 
 
 ## Questions <a name="questions"></a>
