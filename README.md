@@ -1,31 +1,40 @@
 
 # Team Info Generator
 ## Description <a name="description"></a>
-Team Info Generator is a tool designed to visualy introduce and manage employee data.
+
+As a manager a user want to generate a webpage that displays my team's basic info so that a user have quick access to their emails and GitHub profiles.
 
 ## Table of Content
 
 1. [Description](#description)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Contribution](#contribution)
-5. [Test](#test)
-6. [Licence](#licence)
-7. [Questions](#questions)
+4. [Licence](#licence)
+5. [Questions](#questions)
 
 ## <a name="installation"></a> Installation 
+* This application requires NODE.js server environment. You can find more about NODE.js here: 
+[Link](https://nodejs.dev/en/learn/how-to-install-nodejs/) 
+* Once you set your enviroment accordingly please run the program by typing: `node index.js` in your console
 
 
 ## Usage <a name="usage"></a>
+* Program will identify user as a Manager and asks relevant questions. 
 
+![Manager's question image](./images/image1.png)
 
-## Contribution <a name="contribution"></a>
+* Then application will ask user for further instructions
 
+![Decision image](./images/image2.png)
 
-## Test <a name="test"></a>
+* User can choose one of the three of following options:
+    * `Add an engineer` to add engineer type of employee
+    * `Add an intern` to add intern
+    * `Finish building the team` to finish process, render results and shut down application
 
 
 ## License <a name="licence"></a>
+MIT
 
 
 ## Questions <a name="questions"></a>
