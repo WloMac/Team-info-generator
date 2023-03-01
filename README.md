@@ -10,7 +10,8 @@ As a manager a user want to generate a webpage that displays my team's basic inf
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Licence](#licence)
-5. [Questions](#questions)
+5. [Colaboration](#colaboration)
+6. [Questions](#questions)
 
 ## <a name="installation"></a> Installation 
 * This application requires NODE.js server environment. You can find more about NODE.js here: 
@@ -39,6 +40,9 @@ As a manager a user want to generate a webpage that displays my team's basic inf
 
 ## License <a name="licence"></a>
 MIT
+
+## Colaboration <a name="colaboration"></a>
+This project is based on starting code provided by Trilogy Education Services. Part of code in `index.js` has been created under supervision.
 
 
 ## Questions <a name="questions"></a>
