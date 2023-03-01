@@ -21,16 +21,20 @@ As a manager a user want to generate a webpage that displays my team's basic inf
 ## Usage <a name="usage"></a>
 * Program will identify user as a Manager and asks relevant questions. 
 
-![Manager's question image](./images/image1.png)
+    ![Manager's question image](./images/image1.png)
 
 * Then application will ask user for further instructions
 
-![Decision image](./images/image2.png)
+    ![Decision image](./images/image2.png)
 
 * User can choose one of the three of following options:
     * `Add an engineer` to add engineer type of employee
     * `Add an intern` to add intern
     * `Finish building the team` to finish process, render results and shut down application
+
+* Results of input can be seen by opening `team.html` file in `output` directory. 
+
+    ![Render example](./images/image3.png)
 
 
 ## License <a name="licence"></a>
