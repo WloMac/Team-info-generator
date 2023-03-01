@@ -52,6 +52,8 @@ let managerDetails = [
 
 ]
 // Engineer's detail
+function engineerPrompt() {
+  
 
 let engineerDetails = [{
   type: 'input',
@@ -85,6 +87,13 @@ let engineerDetails = [{
       return 'NoNum';
   }
 }]
+inquirer.prompt(engineerDetails).then(data =>{
+  //console.log(team)
+  team.push(new Engineer (data.name, data.id, data.email, data.github ));
+  decision();
+})
+}
+
 let employeeDetails = [{
   type: 'input',
   name: 'name',
@@ -111,6 +120,8 @@ let employeeDetails = [{
 },
 ]
 // Intern's detail
+function internPrompt() {  
+
 let internDetails = [
   {
     type: 'input',
@@ -144,7 +155,14 @@ let internDetails = [
         return 'NoNum';
     }
   }]
+  inquirer.prompt(internDetails).then(data =>{
+    //console.log(team)
+    team.push(new Intern (data.name, data.id, data.email, data.school ));
+    decision();
+  })
+  }
 
+ function decision() { 
   let decision = [
     {
     type: 'list',
@@ -155,91 +173,47 @@ let internDetails = [
       return val.charAt(0);
     }
   }]
+  //console.log(team)
+  inquirer.prompt(decision).then(data =>{
+
+    switch (data.typeOfMember){
+      case "1":
+        engineerPrompt();      
+        break;
+        
+      case "2":
+        internPrompt();
+          break;
+      
+      default:
+        console.log("Thank you for using Team Generator!")
+        //console.log(team)
+        let htmlDoc = render(team)
+        fs.writeFile(outputPath, htmlDoc)
+        break;
+    }
+  }
+
+  )
+
+  
+}
 
 teamGenerator()
-async function teamGenerator() {  
-    let {name, id, email, officeNumber, github, school } = await inquirer
+function teamGenerator() {  
+    inquirer.prompt(managerDetails).then(data=>{
+      team.push(new Manager (data.name, data.id, data.email, data.officeNumber ));  
+    } ).then(()=> {
+      decision()
+    })
     // // type of employee selection 
     // // if manager go to managerGenerator?
     // // if engineer go to engineerGenerator?
     // // if intern go to internGenerator? 
     // // managerGenerator(){ is prompts for manager as below?}
-  
-    .prompt(managerDetails);
-
-    // adding a selection of action
-    
        
-       
-    
-    // await inquirer .prompt(engineerDetails);
-    // validte choose and make apropriate prompt
-    
-      do{
-      let typeOfMember = await inquirer     
-      .prompt(decision);
-      
-        //(Object.values(typeOfMember) != 3 )
-        console.log(Object.values(typeOfMember))
-        if (Object.values(typeOfMember) == 1) {
-          await inquirer .prompt(engineerDetails);
-          
-          //validate();
-                  
-          
-        }else if (Object.values(typeOfMember) == 2){
-          await inquirer .prompt(internDetails);
-          //validate();
-          
-          
-          
-        }else{
-        console.log("Thank you for using Team Generator");
-        }
-      }
-    while(Object.values(typeOfMember) == 3)
-      
-
-      
-     
-     
-      // validation
-      // function validate(){
-      //   const anotherMember = {
-      //     type: 'confirm',
-      //     name: 'AddMember',
-      //     message: 'Do you like to add another member?',
-      //     default: true,  
-      //   }
-      
-      //   inquirer.prompt(anotherMember).then((answers) => {
-      //     if(answers.AddMember === true){
-           
-      //     }
-      //     else{
-      //       console.log("Your team has been build");
-      //       return;
-      //     }
-      //   })
-      // }
-
- 
-
   
-  
-
-
-  
-  team.push(new Manager (name, id, email, officeNumber ));
-  team.push(new Engineer (name, id, email, github ));
-  team.push(new Intern (name, id, email, school ));
-
-  let htmlDoc = render(team)
-
-  await fs.writeFile(outputPath, htmlDoc);
-
-  
-}
+ }
 
 
 
